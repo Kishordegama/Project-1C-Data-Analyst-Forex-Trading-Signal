@@ -1,0 +1,76 @@
+==============================================================================
+OFFICIAL PROJECT REPORT: STEP 3 MONTE CARLO RISK ANALYSIS
+==============================================================================
+
+1. DATASET VALIDATION
+------------------------------------------------------------------------------
+Monte Carlo scenarios          : 1,000
+Dataset columns                : 8
+Duplicate rows                 : 0
+Missing values                 : 0
+Portfolio PnL components       : EURUSD + USDJPY + GBPUSD
+
+2. PORTFOLIO RISK METRICS
+------------------------------------------------------------------------------
+Expected Portfolio PnL        : $4,871.34
+Median Portfolio PnL          : $1,472.13
+Portfolio PnL Volatility      : $102,545.65
+Probability of Loss           : 49.50%
+Probability of Profit         : 50.50%
+Worst Scenario PnL            : $-269,801.36
+Best Scenario PnL             : $375,103.83
+
+3. VALUE AT RISK AND EXPECTED SHORTFALL
+------------------------------------------------------------------------------
+95% Value at Risk             : $165,865.70
+95% Conditional VaR           : $198,183.87
+99% Value at Risk             : $223,141.70
+99% Conditional VaR           : $245,497.55
+
+Methodology:
+95% VaR is the absolute value of the 5th percentile portfolio PnL.
+95% CVaR is the average loss across the worst 5% of scenarios.
+99% VaR and CVaR use the worst 1% of Monte Carlo scenarios.
+
+4. STRESS FACTOR SENSITIVITY
+------------------------------------------------------------------------------
+Risk factor                    : ParallelShift
+Correlation with Portfolio PnL : -0.9978
+Relationship                   : Strong Negative
+Sensitivity per 1% shock        : $-103,619.15
+R-squared                      : 0.9957
+
+Risk factor                    : CorrShock
+Correlation with Portfolio PnL : 0.0131
+Relationship                   : Very Weak Positive
+Sensitivity per 1% shock        : $681.23
+R-squared                      : 0.0002
+
+Risk factor                    : VolShock
+Correlation with Portfolio PnL : 0.0113
+Relationship                   : Very Weak Positive
+Sensitivity per 1% shock        : $232.49
+R-squared                      : 0.0001
+
+5. KEY RISK FINDINGS
+------------------------------------------------------------------------------
+Dominant portfolio risk factor   : ParallelShift
+Dominant factor correlation      : -0.9978
+Dominant factor R-squared        : 0.9957
+
+The Monte Carlo portfolio has a positive expected PnL, but the probability of loss is close to 50%.
+Tail-risk analysis shows that losses can become materially larger in the worst 5% and 1% of simulated scenarios.
+ParallelShift is the primary risk driver and has a strong negative relationship with PortfolioPnL.
+VolShock and CorrShock show very weak standalone relationships with PortfolioPnL in the supplied scenarios.
+
+6. GENERATED OUTPUTS
+------------------------------------------------------------------------------
+Outputs/monte_carlo_risk_metrics.csv
+Outputs/monte_carlo_stress_sensitivity.csv
+Outputs/monte_carlo_pnl_distribution.png
+Outputs/parallel_shift_vs_pnl.png
+Report/step3_monte_carlo_risk_report.txt
+
+==============================================================================
+STEP 3 STATUS: SUCCESSFUL AND VERIFIED
+==============================================================================

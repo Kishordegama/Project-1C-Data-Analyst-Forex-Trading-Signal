@@ -1,0 +1,13 @@
+Metric,Value
+Total Monte Carlo Scenarios,1000.000000
+Expected Portfolio PnL USD,4871.337220
+Median Portfolio PnL USD,1472.130000
+Portfolio PnL Volatility USD,102545.653127
+Probability of Loss Percent,49.500000
+Probability of Profit Percent,50.500000
+Worst Scenario PnL USD,-269801.360000
+Best Scenario PnL USD,375103.830000
+VaR 95 Percent USD,165865.703000
+CVaR 95 Percent USD,198183.870400
+VaR 99 Percent USD,223141.697100
+CVaR 99 Percent USD,245497.550000

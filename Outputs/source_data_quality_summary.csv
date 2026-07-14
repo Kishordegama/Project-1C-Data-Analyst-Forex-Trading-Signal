@@ -1,0 +1,4 @@
+Dataset,FileName,Rows,Columns,MissingValues,DuplicateRows,ValidationStatus
+Forex Price Data,forex_price_data.csv,500,9,0,0,PASSED
+Monte Carlo Data,mc_scenarios.csv,1000,8,0,0,PASSED
+Trade Log Data,trade_log.csv,150,15,0,0,PASSED

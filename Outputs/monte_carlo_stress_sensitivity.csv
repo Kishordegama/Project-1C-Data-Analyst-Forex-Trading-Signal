@@ -1,0 +1,4 @@
+RiskFactor,CorrelationWithPortfolioPnL,RelationshipDirection,RelationshipStrength,SensitivityPer1PctShock_USD,RegressionIntercept_USD,R_Squared
+ParallelShift,-0.997833,Negative,Strong,-103619.151935,2216.200071,0.995670
+CorrShock,0.013121,Positive,Very Weak,681.227867,4894.924735,0.000172
+VolShock,0.011319,Positive,Very Weak,232.485852,4835.303517,0.000128

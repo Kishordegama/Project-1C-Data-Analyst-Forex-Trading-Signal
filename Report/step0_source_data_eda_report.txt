@@ -1,0 +1,35 @@
+==============================================================================
+OFFICIAL PROJECT REPORT: STEP 0 SOURCE DATA VALIDATION AND EDA
+==============================================================================
+
+         Dataset             FileName  Rows  Columns  MissingValues  DuplicateRows ValidationStatus
+Forex Price Data forex_price_data.csv   500        9              0              0           PASSED
+Monte Carlo Data     mc_scenarios.csv  1000        8              0              0           PASSED
+  Trade Log Data        trade_log.csv   150       15              0              0           PASSED
+
+FOREX DATA COVERAGE
+------------------------------------------------------------------------------
+Start date       : 2023-01-01 00:00:00
+End date         : 2023-01-21 19:00:00
+Currency pairs   : EUR/USD
+Price rows       : 500
+
+PROJECT DATA VOLUMES
+------------------------------------------------------------------------------
+Monte Carlo scenarios : 1,000
+Trade-log records      : 150
+
+METHODOLOGY NOTE
+------------------------------------------------------------------------------
+Raw trade PnL is not aggregated in Step 0 because the supplied trade log contains multiple quote currencies.
+Step 1 converts every trade into comparable USD PnL before performance analysis is completed in Step 2.
+
+GENERATED OUTPUTS
+------------------------------------------------------------------------------
+Outputs/source_data_quality_summary.csv
+Outputs/forex_price_trend.png
+Report/step0_source_data_eda_report.txt
+
+==============================================================================
+STEP 0 STATUS: SUCCESSFUL AND VERIFIED
+==============================================================================

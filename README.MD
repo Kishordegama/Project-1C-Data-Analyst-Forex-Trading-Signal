@@ -1,499 +1,466 @@
 # 📈 Forex Market Risk Analysis Dashboard
 
-![Forex Market Dashboard](page%201forex.jpeg)
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Power BI](https://img.shields.io/badge/Power%20BI-Desktop-yellow)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243)
+![Project Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+![Forex Market Dashboard](Dashboard/dashboard_page_1_forex.png)
+
+An end-to-end financial data analytics project developed using **Python** and **Microsoft Power BI**.
+
+This project analyzes historical Forex prices, trading performance, market sessions, trading strategies, portfolio risk, and Monte Carlo simulation results through automated Python analysis and four interactive Power BI dashboards.
+
+---
 
 ## 📌 Project Overview
 
-This project is an end-to-end Financial Data Analytics solution developed using **Python** and **Microsoft Power BI**.
+The Forex Market Risk Analysis project demonstrates how Python and Microsoft Power BI can be combined to build a complete financial analytics workflow.
 
-The project analyzes historical Forex market data, evaluates trading performance, performs portfolio risk analysis using Monte Carlo Simulation, and presents actionable insights through an interactive Power BI dashboard.
+Python is used for:
 
-The objective is to transform raw financial datasets into meaningful business intelligence that supports better trading and investment decisions.
+- Data validation and cleaning
+- Exploratory Data Analysis
+- Trade P&L normalization
+- Currency-pair performance analysis
+- Trading-strategy evaluation
+- Equity-curve and drawdown analysis
+- Monte Carlo portfolio-risk simulation
+- Automated report and chart generation
+
+Microsoft Power BI is used to create interactive dashboards for:
+
+- Forex Market Analysis
+- Monte Carlo Risk Analysis
+- Trading Session Analysis
+- Trading Strategy Performance
 
 ---
 
-# 🎯 Project Objectives
+## 🎯 Project Objectives
 
-- Analyze historical Forex market prices.
-- Evaluate trading Profit & Loss (PnL).
-- Perform Monte Carlo Portfolio Risk Simulation.
-- Analyze trading sessions across global markets.
-- Compare trading strategy performance.
-- Build an interactive Business Intelligence dashboard using Power BI.
-- Generate insights through Python-based Exploratory Data Analysis (EDA).
+- Analyze historical Forex price movements.
+- Validate the quality of source datasets.
+- Standardize and normalize trade Profit & Loss.
+- Compare performance across currency pairs.
+- Evaluate strategy-wise trading results.
+- Measure equity growth and portfolio drawdown.
+- Analyze performance across global trading sessions.
+- Simulate portfolio risk using Monte Carlo scenarios.
+- Build an interactive four-page Power BI dashboard.
+- Present financial insights through professional visualizations.
 
 ---
 
-# 🛠 Technologies Used
+## 🔄 Analytics Workflow
+
+The project follows a structured four-step Python workflow:
+
+### Step 0 — Source Data EDA
+
+- Source-dataset validation
+- Missing-value detection
+- Duplicate detection
+- Summary-statistics calculation
+- Data-quality report generation
+
+### Step 1 — Trade P&L Normalization
+
+- Standardization of trade-level P&L
+- Currency-pair aggregation
+- Strategy-level aggregation
+- Normalized trade-log creation
+
+### Step 2 — Trade Performance Analysis
+
+- Equity-curve calculation
+- Running-peak calculation
+- Drawdown measurement
+- Pair-wise performance analysis
+- Strategy-wise performance analysis
+- Trade-performance report generation
+
+### Step 3 — Monte Carlo Risk Analysis
+
+- Portfolio P&L distribution analysis
+- Risk-metric calculation
+- Stress-sensitivity analysis
+- Monte Carlo risk-report generation
+
+The complete workflow can be executed using the master `analysis.py` script.
+
+---
+
+## 🛠 Technologies Used
 
 | Technology | Purpose |
-|------------|---------|
-| Python | Data Analysis |
-| Pandas | Data Cleaning |
-| NumPy | Numerical Computing |
-| Matplotlib | Data Visualization |
-| Microsoft Power BI | Dashboard Development |
-| DAX | KPI Calculations |
-| CSV | Data Storage |
+|---|---|
+| Python | Financial data analysis and automation |
+| Pandas | Data cleaning, transformation, and aggregation |
+| NumPy | Numerical and statistical calculations |
+| Matplotlib | Financial charts and risk visualizations |
+| Microsoft Power BI | Interactive dashboard development |
+| DAX | KPI measures and business calculations |
+| Power Query | Data preparation and transformation |
+| CSV | Source-data and analytical-output storage |
 
 ---
 
-# 📂 Dataset Information
+## 📂 Dataset Information
 
-The project consists of four datasets.
+### 1. Forex Price Data
 
-## 1️⃣ Forex Price Data
+File: `Data/forex_price_data.csv`
 
-Historical Forex market prices.
+Contains historical Forex market-price information.
 
-### Columns
+Key columns include:
 
-- DateTime
-- PairName
-- Open
-- High
-- Low
-- Close
-- Volume
+- `DateTime`
+- `PairName`
+- `Open`
+- `High`
+- `Low`
+- `Close`
+- `Volume`
 
----
+### 2. Monte Carlo Scenario Data
 
-## 2️⃣ Monte Carlo Simulation Data
+File: `Data/mc_scenarios.csv`
 
-Portfolio risk simulation dataset.
+Contains simulated portfolio-risk scenarios.
 
-### Columns
+Key columns include:
 
-- ScenarioID
-- PortfolioPnL
-- VolShock
-- CorrShock
-- EURUSD_PnL
-- GBPUSD_PnL
-- USDJPY_PnL
+- `ScenarioID`
+- `PortfolioPnL`
+- `VolShock`
+- `CorrShock`
+- `EURUSD_PnL`
+- `GBPUSD_PnL`
+- `USDJPY_PnL`
 
----
+### 3. Trade Log
 
-## 3️⃣ Trade Log
+File: `Data/trade_log.csv`
 
-Trading history dataset.
+Contains historical trade-level information.
 
-### Columns
+Key columns include:
 
-- TradeID
-- PairName
-- EntryPrice
-- ExitPrice
-- EntryDateTime
-- ExitDateTime
-- HoldingDays
-- PnL
-- SignalType
-- StrategyName
+- `TradeID`
+- `PairName`
+- `EntryPrice`
+- `ExitPrice`
+- `EntryDateTime`
+- `ExitDateTime`
+- `HoldingDays`
+- `PnL`
+- `SignalType`
+- `StrategyName`
 
----
+### 4. Time Dimension
 
-## 4️⃣ Time Dimension
+A custom Power BI time-dimension table is used for trading-session analysis.
 
-Custom Time Dimension table used for Trading Session Analysis.
+Key fields include:
 
-### Columns
-
-- Hour
-- Session
-- IsOverlap
-- TimeKey
+- `Hour`
+- `Session`
+- `IsOverlap`
+- `TimeKey`
 
 ---
 
-# 🐍 Python Analysis
+## 🐍 Python Analysis
 
-Python was used for:
+Python automatically generates analytical CSV reports and PNG visualizations inside the `Outputs` folder.
 
-- Data Cleaning
-- Missing Value Detection
-- Duplicate Detection
-- Exploratory Data Analysis (EDA)
-- Summary Statistics
-- Financial Visualization
+The analysis includes:
 
-Generated outputs include:
+- Source-data quality validation
+- Forex price-trend analysis
+- Trade P&L distribution
+- Currency-pair performance comparison
+- Strategy-performance comparison
+- Equity-curve and drawdown analysis
+- Monte Carlo P&L distribution
+- Portfolio stress-sensitivity analysis
 
-- Forex Price Trend
-- Profit & Loss Distribution
-- Currency Pair Analysis
+### Forex Price Trend
 
----
+![Forex Price Trend](Outputs/forex_price_trend.png)
 
-# 📷 Python Analysis Outputs
+### Trade P&L Distribution
 
-## 📈 Forex Price Trend
+![Trade PnL Distribution](Outputs/pnl_distribution.png)
 
-![Forex Price Trend](forex%20close%20tren.jpeg)
+### Currency-Pair Net P&L
 
----
+![Currency Pair Net PnL](Outputs/pair_net_pnl_usd.png)
 
-## 📉 Trade PnL Distribution
+### Strategy Net P&L
 
-![Trade PnL Distribution](loss%20distribution.jpeg)
+![Strategy Net PnL](Outputs/strategy_net_pnl_usd.png)
 
----
+### Equity Curve and Drawdown
 
-## 💱 Currency Pair Analysis
+![Equity Curve and Drawdown](Outputs/equity_curve_drawdown.png)
 
-![Currency Pair Analysis](currency%20pair.jpeg)
+### Monte Carlo P&L Distribution
 
----
-
-# 🧩 Data Model
-
-The Power BI report is built using four connected tables.
-
-- forex_price_data
-- mc_scenarios
-- trade_log
-- DimTime
-
-The **DimTime** table is related to the Trade Log to perform Trading Session Analysis and Time Intelligence calculations.
-
-## Data Model
-
-![Data Model](data%20model%20page%205.jpeg)
-
----
-# 📊 Power BI Dashboard
-
-The Power BI report contains **4 interactive dashboard pages**, each designed to provide actionable insights into Forex trading performance, portfolio risk, and market behavior.
+![Monte Carlo PnL Distribution](Outputs/monte_carlo_pnl_distribution.png)
 
 ---
 
-# 📈 Dashboard Page 1 – Forex Market Analysis
+## 🧩 Power BI Data Model
 
-This page provides a comprehensive overview of the Forex market using interactive KPIs and visualizations.
+The Power BI data model contains the following primary tables:
 
-### Key Features
+- `forex_price_data`
+- `mc_scenarios`
+- `trade_log`
+- `DimTime`
+
+The `DimTime` table is connected to the trade data for session-wise and market-overlap analysis.
+
+![Power BI Data Model](Dashboard/powerbi_data_model.jpeg)
+
+---
+
+## 📊 Power BI Dashboard
+
+The Power BI report contains **four interactive dashboard pages**.
+
+### 📈 Page 1 — Forex Market Analysis
+
+Key features:
 
 - Current Price KPI
 - Highest Price KPI
 - Lowest Price KPI
 - Average Price KPI
-- Forex Price Trend
-- Profit & Loss by Currency Pair
-- Buy/Sell Signal Distribution
-- Currency Pair Filter
+- Historical Forex Price Trend
+- P&L by Currency Pair
+- Trading Signal Distribution
+- Currency-Pair Filter
 - Date Filter
 
-### Dashboard Preview
-
-![Forex Market Dashboard](page%201forex.jpeg)
+![Forex Market Analysis](Dashboard/dashboard_page_1_forex.png)
 
 ---
 
-# 📉 Dashboard Page 2 – Monte Carlo Risk Analysis
+### 📉 Page 2 — Monte Carlo Risk Analysis
 
-This dashboard evaluates portfolio performance using Monte Carlo Simulation and visualizes investment risk.
+Key features:
 
-### Key Features
-
-- Average Portfolio PnL
-- Maximum Portfolio PnL
-- Minimum Portfolio PnL
-- Monte Carlo Portfolio Simulation
-- Risk vs Return Scatter Plot
-- Scenario Filter
+- Average Portfolio P&L
+- Maximum Portfolio P&L
+- Minimum Portfolio P&L
+- Portfolio Simulation Distribution
+- Risk-versus-Return Scatter Plot
+- Scenario Range Slider
 - Interactive Tooltips
 
-### Dashboard Preview
-
-![Monte Carlo Dashboard](page%202%20monte%20carlo.jpeg)
+![Monte Carlo Risk Analysis](Dashboard/dashboard_page_2_monte_carlo.png)
 
 ---
 
-# 🌍 Dashboard Page 3 – Trading Session Analysis
+### 🌍 Page 3 — Trading Session Analysis
 
-This page analyzes trading performance across major Forex trading sessions.
+Key features:
 
-### Sessions Covered
+- Trading Session Heatmap
+- Session-wise Profit & Loss
+- Session Performance Comparison
+- Market-Overlap Analysis
+- Overlap Premium KPI
+
+Trading sessions covered:
 
 - London
 - New York
 - Tokyo
 - Sydney
 
-### Key Features
-
-- Trading Session Heatmap
-- Session-wise Profit & Loss
-- Trading Volume Analysis
-- Session Overlap KPI
-- Hourly Performance Analysis
-- Interactive Filters
-
-### Dashboard Preview
-
-![Trading Session Dashboard](page%203%20treding.jpeg)
+![Trading Session Analysis](Dashboard/dashboard_page_3_trading_session.png)
 
 ---
 
-# 📊 Dashboard Page 4 – Strategy Performance Analysis
+### 📊 Page 4 — Strategy Performance Analysis
 
-This dashboard compares the performance of multiple trading strategies.
-
-### Strategies Included
-
-- ML_RF
-- ML_XGB
-- MACD Trend
-- RSI Reversal
-- Moving Average Cross
-- RL PPO
-- Composite Strategy
-
-### Key Features
+Key features:
 
 - Strategy-wise Profit & Loss
-- Strategy Performance Comparison
-- Signal Distribution
-- Win Rate Analysis
-- Strategy Filters
-- Interactive Dashboard
+- Strategy Distribution
+- Signal-Type Analysis
+- Interactive Signal Filter
+- Comparative Strategy Performance
 
-### Dashboard Preview
+Strategies analyzed include:
 
-![Strategy Dashboard](page%204%20strategy.jpeg)
+- `ML_RF`
+- `ML_XGB`
+- `MACD_Trend`
+- `RSI_Reversal`
+- `MA_Cross`
+- `RL_PPO`
+- `Composite`
 
----
-
-# 📈 Key Insights
-
-The dashboard provides several valuable business insights.
-
-### Forex Market Insights
-
-- Historical Forex prices were analyzed across multiple currency pairs.
-- Market trends can be monitored using interactive visualizations.
-- Currency-wise Profit & Loss comparison helps identify stronger-performing assets.
-
-### Portfolio Risk Analysis
-
-- Monte Carlo Simulation evaluates portfolio uncertainty.
-- Risk and return relationships are visualized using scatter plots.
-- Portfolio performance can be analyzed under multiple simulated scenarios.
-
-### Trading Session Analysis
-
-- Trading activity is compared across London, New York, Tokyo, and Sydney sessions.
-- Session overlap analysis highlights high-volume trading periods.
-- Hourly trading performance supports better decision-making.
-
-### Strategy Performance
-
-- Multiple trading strategies are evaluated side by side.
-- Profitability differences between strategies are clearly visualized.
-- Interactive filters help analyze strategy-specific performance.
+![Strategy Performance Analysis](Dashboard/dashboard_page_4_strategy.png)
 
 ---
 
-# 📌 Project Highlights
+## 📈 Key Analytical Insights
 
-✔ Interactive Power BI Dashboard
-
-✔ Python-Based Data Analysis
-
-✔ Financial Risk Analytics
-
-✔ Monte Carlo Simulation
-
-✔ Trading Session Intelligence
-
-✔ Strategy Performance Evaluation
-
-✔ Business Intelligence Reporting
+- Historical Forex-price behavior was analyzed across multiple currency pairs.
+- Trade-level P&L was cleaned, standardized, and aggregated.
+- Currency-pair performance was compared using net P&L.
+- Multiple algorithmic and technical trading strategies were evaluated.
+- Equity-curve and drawdown analysis were used to measure trading risk.
+- Global trading sessions were compared to identify performance differences.
+- Market-overlap periods were evaluated through an overlap-premium KPI.
+- Monte Carlo scenarios were analyzed to estimate portfolio uncertainty.
+- Stress sensitivity was evaluated using volatility and correlation shocks.
+- Python outputs were integrated with Power BI for financial reporting.
 
 ---
-# 📁 Project Structure
+
+## 📁 Project Structure
 
 ```text
-Project-1C-Data-Analyst-Forex-Trading-Signal/
+Project-1C/
 │
-├── forex_price_data.csv
-├── mc_scenarios.csv
-├── trade_log.csv
-├── page 1forex.jpeg
-├── page 2 monte carlo.jpeg
-├── page 3 treding.jpeg
-├── page 4 strategy.jpeg
-├── data model page 5.jpeg
-├── forex close tren.jpeg
-├── loss distribution.jpeg
-├── currency pair.jpeg
+├── Dashboard/
+│   ├── dashboard_page_1_forex.png
+│   ├── dashboard_page_2_monte_carlo.png
+│   ├── dashboard_page_3_trading_session.png
+│   ├── dashboard_page_4_strategy.png
+│   └── powerbi_data_model.jpeg
+│
+├── Data/
+│   ├── forex_price_data.csv
+│   ├── mc_scenarios.csv
+│   └── trade_log.csv
+│
+├── Outputs/
+│   ├── equity_curve_data.csv
+│   ├── equity_curve_drawdown.png
+│   ├── forex_price_trend.png
+│   ├── monte_carlo_pnl_distribution.png
+│   ├── monte_carlo_risk_metrics.csv
+│   ├── monte_carlo_stress_sensitivity.csv
+│   ├── parallel_shift_vs_pnl.png
+│   ├── pair_net_pnl_usd.png
+│   ├── pair_performance_usd.csv
+│   ├── pnl_distribution.png
+│   ├── source_data_quality_summary.csv
+│   ├── strategy_net_pnl_usd.png
+│   ├── strategy_performance_usd.csv
+│   ├── trade_log_normalized.csv
+│   ├── trade_net_pnl_distribution_usd.png
+│   └── trade_performance_summary.csv
+│
+├── Report/
+│   ├── step0_source_data_eda_report.txt
+│   ├── step3_monte_carlo_risk_report.txt
+│   └── trade_performance_report.txt
+│   ├── .gitignore
 ├── analysis.py
+├── step0_source_data_eda.py
+├── step1_normalize_trade_pnl.py
+├── step2_trade_performance.py
+├── step3_monte_carlo_risk.py
 ├── Project_1C_Dashboard.pbix
-├── README.md
 ├── requirements.txt
-└── LICENSE
+└── README.md
 ```
 
 ---
 
-# ⚙ Installation
+## 🚀 How to Run the Project
 
-Clone the repository.
-
-```bash
-git clone https://github.com/Kishordegama/Project-1C-Data-Analyst-Forex-Trading-Signal.git
-```
-
-Move into the project directory.
+### 1. Clone the repository
 
 ```bash
-cd Project-1C-Data-Analyst-Forex-Trading-Signal
+git clone <repository-url>
+cd Project-1C
 ```
 
-Install all required libraries.
+### 2. Install the required Python libraries
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the Python analysis.
+### 3. Run the complete Python analysis
 
 ```bash
 python analysis.py
 ```
 
-Open the Power BI dashboard.
+### 4. Review the generated results
 
-```
+After successful execution:
+
+- Charts and CSV summaries will be available inside `Outputs/`.
+- Text-based analytical reports will be available inside `Report/`.
+
+### 5. Open the Power BI Dashboard
+
+Open the following file using Microsoft Power BI Desktop:
+
+```text
 Project_1C_Dashboard.pbix
 ```
 
 ---
 
-# 📦 Python Libraries
+## 🚀 Future Improvements
 
-The project uses the following Python libraries.
-
-- pandas
-- numpy
-- matplotlib
-
-Install them using:
-
-```bash
-pip install -r requirements.txt
-```
+- Live Forex API integration
+- Real-time market-data refresh
+- AI-based Forex price prediction
+- Automated portfolio-risk alerts
+- Trading-signal recommendation system
+- Advanced Value at Risk analysis
+- Power BI Service deployment
+- Scheduled dashboard refresh
+- Broker API integration
 
 ---
 
-# 🚀 Future Improvements
+## 💼 Skills Demonstrated
 
-The project can be extended with several advanced features.
-
-- Live Forex API Integration
-- Real-Time Dashboard Refresh
-- AI-Based Price Prediction
-- Machine Learning Forecasting Models
-- Automated Risk Alerts
-- Trading Signal Recommendation Engine
-- Publish Dashboard to Microsoft Power BI Service
-- Mobile Dashboard Support
-- Real-Time Currency Tracking
-- Cloud-Based Data Pipeline
-
----
-
-# 💼 Skills Demonstrated
-
-This project demonstrates practical knowledge in:
-
-### Programming
-
-- Python
-
-### Data Analysis
-
+- Python Programming
 - Data Cleaning
-- Exploratory Data Analysis (EDA)
-- Financial Analytics
-- Statistical Analysis
-
-### Data Visualization
-
-- Matplotlib
-- Microsoft Power BI
-
-### Business Intelligence
-
-- Dashboard Design
-- KPI Development
-- Interactive Reports
-- Data Storytelling
-
-### Power BI
-
-- DAX
-- Data Modeling
-- Relationships
-- Slicers
-- Drill Through
-- KPI Cards
-- Interactive Charts
-
-### Financial Analytics
-
-- Forex Market Analysis
-- Trading Performance Analysis
-- Portfolio Risk Assessment
+- Exploratory Data Analysis
+- Financial Data Analytics
+- Trade Performance Analysis
 - Monte Carlo Simulation
-- Strategy Performance Evaluation
-
----
-
-# 📈 Business Value
-
-This dashboard helps users to:
-
-- Monitor Forex Market Performance
-- Analyze Trading Profit & Loss
-- Evaluate Portfolio Risk
-- Compare Trading Strategies
-- Analyze Global Trading Sessions
-- Support Data-Driven Investment Decisions
-
----
-
-# 👨‍💻 Author
-
-## Kishor Degama
-
-**Aspiring Data Analyst**
-
-### Skills
-
-- Python
-- SQL
+- Portfolio Risk Analysis
+- Equity Curve and Drawdown Analysis
 - Microsoft Power BI
-- Excel
-- Data Visualization
-- Financial Analytics
+- DAX
+- Power Query
+- Data Modeling
+- Interactive Dashboard Design
 - Business Intelligence
-- Dashboard Development
+- Data Visualization
 
 ---
 
-# ⭐ If You Like This Project
+## ⚠️ Disclaimer
 
-If you found this project helpful, please consider giving it a ⭐ on GitHub.
-
-It motivates me to continue building more Data Analytics and Business Intelligence projects.
+This project was created for educational and analytical purposes only. It does not provide financial or investment advice.
 
 ---
 
-## Thank You
+## 👨‍💻 Author
 
-Thank you for visiting this repository.
+**Kishor Degama**
 
-I hope this project provides useful insights into Forex Market Analytics, Risk Analysis, and Interactive Business Intelligence using Python and Microsoft Power BI.
+Aspiring Data Analyst
 
-Happy Learning!
+**Skills:** Python · SQL · Power BI · Excel · Data Visualization · Financial Analytics
